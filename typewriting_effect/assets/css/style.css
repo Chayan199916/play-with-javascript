@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.intro{
+    width: 100%;
+    height: 100vh;
+    background-image: url("../images/image1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    color: azure;
+}
+.content{
+    display: flex;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: 20px;
+}
+
+.typing-text{
+    position: relative;
+    text-transform: uppercase;
+    margin-left: 2px;
+}
+
+.typing-text::after{
+    content: "";
+    position: absolute;
+    height: 81%;
+    margin: 1px;
+    width: 2px;
+    padding-left: 5px;
+    border-right: 3px solid #fff;
+    animation: blink 5s infinite ease;
+}
+
+@keyframes blink{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

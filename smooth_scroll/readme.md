@@ -1,0 +1,1 @@
+# A simple exercise of smooth scrolling using vanilla js

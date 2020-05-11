@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Load the Paper.js library -->
+    <script type="text/javascript" src="dist\paper-full.js"></script>
+    <!-- Define inlined PaperScript associate it with myCanvas -->
+    <script type="text/paperscript" canvas="myCanvas">
+        var text = new PointText({
+            point: view.center,
+            content: 'Click here to focus and then press some keys.',
+            justification: 'center',
+            fontSize: 15
+        });
+        
+        function onKeyDown(event) {
+            // When a key is pressed, set the content of the text item:
+            text.content = 'The ' + event.key + ' key was pressed!';
+        }
+        function onKeyUp(event) {
+            // When a key is released, set the content of the text item:
+            text.content = 'The ' + event.key + ' key was released!';
+        }
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="myCanvas" resize></canvas>
+</body>
+
+</html>

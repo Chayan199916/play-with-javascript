@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .coordinates {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            position: absolute;
+            bottom: 40px;
+            left: 10px;
+            padding: 5px 10px;
+            margin: 0;
+            font-size: 11px;
+            line-height: 18px;
+            border-radius: 3px;
+            display: none;
+        }
+    </style>
+    <title>Corona visualization tool</title>
+</head>
+
+<body>
+    <div id='map'></div>
+
+</body>
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+<script src="index.js"></script>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY2hheWFuMTk5OTE2IiwiYSI6ImNrOGIyOHR0bzA3czMzaXF0ZXdqbm9yNXQifQ.YSTj91R_vvxrKV1Q5h1agQ';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v10',
+        zoom: 2,
+        center: [78, 21]
+    });
+    var popup = new mapboxgl.Popup({ offset: 25 }).setText(
+        'We welcome you to Kolkata'
+    );
+    map.addControl(new mapboxgl.NavigationControl());
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        coordinates.style.display = 'block';
+        coordinates.innerHTML =
+            'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+    }
+
+</script>
+
+</html>

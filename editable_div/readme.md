@@ -1,0 +1,1 @@
+# This is a simple exercise where if an user clicks on the div, it becomes editable and user can add content. When finished, by clicking outside the div or by pressing enter the content will be saved automatically.

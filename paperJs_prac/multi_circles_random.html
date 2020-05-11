@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Load the Paper.js library -->
+    <script type="text/javascript" src="dist\paper-full.js"></script>
+    <!-- Define inlined PaperScript associate it with myCanvas -->
+    <script type="text/paperscript" canvas="myCanvas">
+    var i, j;
+    for(i = 0; i <= 5000; i = i + 10){
+            x_co = Math.random() * (2000 - 0) + 0;
+            y_co = Math.random() * (1000 - 0) + 0;
+            var myCircle = new Path.Circle(new Point(x_co, y_co), 10);
+            myCircle.fillColor = 'purple';
+    }
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="myCanvas" resize></canvas>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #232323;
+}
+h1{
+    color: aliceblue;
+    text-align: center;
+    padding: 15px;
+    background-color: rgb(7, 146, 146);
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 0.2rem;
+    font-size: 1.7rem;
+    line-height: 45px;
+    font-weight: bold;
+}
+/* #div1{
+    color: rgb(7, 146, 146);
+    text-align: center;
+    background-color: aliceblue;
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 0.2rem;
+    font-size: large;
+} */
+.square{
+    width: 30%;
+    background-color: blueviolet;
+    margin: 1.66%;
+    float: left; 
+    padding-bottom: 30%;
+    border-radius: 19%;
+    cursor: pointer;
+    transition: background 0.4s;
+}
+#container{
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+#message{
+    color: rgb(7, 146, 146);
+    display: inline-block;
+    width: 20%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#div1{
+    margin: 0 auto;
+    text-align: center;
+    background-color: whitesmoke;
+    /* padding: 5px; */
+    height: 35px;
+}
+.selected{
+    background-color: rgb(7, 146, 146);
+    color: cornsilk;
+    outline-style: none;
+}
+button{
+    cursor: pointer;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    height: 100%;
+    outline-style: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: all 0.5s;
+    margin-right: 2%;
+    color: rgb(7, 146, 146);
+    letter-spacing: 0.1rem;
+    
+}
+button:hover{
+    background-color: rgb(7, 146, 146);
+    color: whitesmoke;
+
+}
+#head-color{
+    font-size: 3rem;
+}

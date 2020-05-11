@@ -1,0 +1,1 @@
+# This is a simple color game made to practise the rgb color model with vanilla javascript

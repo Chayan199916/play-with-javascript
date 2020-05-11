@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Load the Paper.js library -->
+    <script type="text/javascript" src="dist\paper-full.js"></script>
+    <!-- Define inlined PaperScript associate it with myCanvas -->
+    <script type="text/paperscript" canvas="myCanvas">
+        var x_co, y_co;
+        var array_circle = [];
+    function onKeyDown(event){
+        x_co = Math.random() * (view.size.width - 0) + 0;
+        y_co = Math.random() * (view.size.height - 0) + 0;
+        var animated_circle = new Path.Circle(new Point(x_co, y_co), 200);
+        animated_circle.fillColor = 'orange';
+        array_circle.push(animated_circle);
+    }    
+    //console.log(array_circle);
+            function onFrame(event){
+                array_circle.forEach(function(element){
+
+                    element.fillColor.hue += 20;
+                    element.scale(.9);
+                })
+            }
+</script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="myCanvas" resize></canvas>
+</body>
+
+</html>

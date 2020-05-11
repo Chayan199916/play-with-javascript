@@ -1,0 +1,1 @@
+# A simple visual effect using vanilla js that can be plugged in whenever in need

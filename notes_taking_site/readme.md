@@ -1,0 +1,1 @@
+# A simple application where user can add notes for future and when done can remove from site. No use of database . Using localstorage for saving notes.

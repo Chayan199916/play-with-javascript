@@ -1,0 +1,8 @@
+body, html{
+    width: 100%;
+    margin: 0;
+}
+canvas{
+    width: 100%;
+    background: rgb(59, 14, 14); 
+}

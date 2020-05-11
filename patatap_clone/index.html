@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Load the Paper.js library -->
+    <script type="text/javascript" src="..\paperJs_prac\dist\paper-full.js"></script>
+    <!-- Define inlined PaperScript associate it with myCanvas -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.3/howler.core.min.js"></script>
+    
+    <script type="text/paperscript" canvas="myCanvas">
+        var sounds = ['bubbles.mp3', 'clay.mp3', 'confetti.mp3', 'corona.mp3', 'dotted-spiral.mp3', 'flash-1.mp3', 'flash-2.mp3', 'flash-3.mp3', 'glimmer.mp3', 'moon.mp3', 'pinwheel.mp3', 'piston-1.mp3', 'piston-2.mp3', 'piston-3.mp3', 'prism-1.mp3', 'prism-2.mp3', 'prism-3.mp3', 'splits.mp3', 'squiggle.mp3', 'strike.mp3', 'suspension.mp3', 'timer.mp3', 'ufo.mp3', 'veil.mp3', 'wipe.mp3', 'zig-zag.mp3'];
+
+        var keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+        var colors = [];
+
+        for(var j = 0; j < 26; j++){
+            red = Math.floor(Math.random() * (255 - 0) + 0);
+            green = Math.floor(Math.random() * (255 - 0) + 0);
+            blue = Math.floor(Math.random() * (255 - 0) + 0);
+            color = 'rgb('.concat(red, ', ', green,', ', blue,')');
+            colors.push(color);
+        }
+        var obj = {};
+
+        for(var i = 0; i < 26; i++){
+            sound_path = 'sounds/';
+            sound_path = sound_path.concat(sounds[i]);
+            obj[keys[i]] = {
+                'sound' : sound_path,
+                'color' : colors[i]
+            };
+
+        }
+        var x_co, y_co;
+        var array_circle = [];
+        console.log(obj);
+        function onKeyDown(event){
+            if(obj[event.key]){
+                new Howl({
+                    src: [obj[event.key].sound]
+                  }).play();
+                x_co = Math.random() * (view.size.width - 0) + 0;
+                y_co = Math.random() * (view.size.height - 0) + 0;
+                var animated_circle = new Path.Circle(new Point(x_co, y_co), 200);
+                animated_circle.fillColor = obj[event.key].color;
+                array_circle.push(animated_circle);
+            }
+        }    
+        //console.log(array_circle);
+            function onFrame(event){
+                array_circle.forEach(function(element){
+                        element.fillColor.hue += 1;
+                        element.scale(.9);
+                })
+            }
+        
+</script>
+    <link rel="stylesheet" href="..\paperJs_prac\style.css">
+</head>
+
+<body>
+    <canvas id="myCanvas" resize></canvas>
+</body>
+
+</html>
