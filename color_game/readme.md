@@ -1,6 +1,6 @@
 # This is a simple color game made to practise the rgb color model with vanilla javascript
 
-### Screenshots and demo animation
+### Screenshots and demo gif
 
 * Screenshots
 
@@ -9,6 +9,6 @@
 <img src = ".\screenshots\image3.png" height="400px" width="800px">
 <img src = ".\screenshots\image4.png" height="400px" width="800px">
 
-* Demo animation 
+* Demo gif
 
 <img src = ".\screenshots\demo.gif" height="400px" width="800px">
