@@ -7,12 +7,14 @@ GAME RULES:
 - The player can choose to 'Hold', which means that his ROUND score gets added to his GLOBAL score. After that, it's the next player's turn
 - The first player to reach 100 points on GLOBAL score wins the game
 - If a Player playes two consecutive sixes, next player gets the turn and same rule goes as like playing 1.
+- User can set the final score
+- There are two dices now. If one of them plays 1, other player will get the chance and prev player's score will get lost
 
 */
-let gameScores, roundScore, activePlayer, prevDice, dice, maxScore;
+let gameScores, roundScore, activePlayer, prevDice1, prevDice2, dice1, dice2, maxScore;
 let activeGame;
 
-let diceElement = document.querySelector(".dice");
+let diceElements = document.querySelectorAll(".dice");
 
 let curScoreZero = document.getElementById("current-0");
 
@@ -27,24 +29,30 @@ document.querySelector(".btn-roll").addEventListener("click", () => {
 
     if(activeGame){
 
-        dice = Math.floor(Math.random() * 6 ) + 1;
+        dice1 = Math.floor(Math.random() * 6 ) + 1;
+        dice2 = Math.floor(Math.random() * 6 ) + 1;
 
-        if(dice === 6 && prevDice === 6){
+        if((dice1 === 6 && prevDice1 === 6) || (dice2 === 6 && prevDice2 === 6)){
 
             roundScore = 0;
             document.getElementById("current-" + activePlayer).textContent = roundScore;
             document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
             activePlayer = Number(!activePlayer);
             document.querySelector(".player-" + activePlayer + "-panel").classList.add("active");
-            diceElement.style.display = "none";
+            diceElements.forEach((diceElement) => {
+                diceElement.style.display = "none";
+            })
 
         }
 
-        else if(dice != 1){
+        else if(dice1 !== 1 && dice2 !== 1){
 
-            diceElement.style.display = "block";
-            diceElement.src = "./assets/images/" + "dice-" + dice + ".png";
-            roundScore += dice;
+            diceElements.forEach((diceElement) => {
+                diceElement.style.display = "block";
+            })
+            diceElements[0].src = "./assets/images/" + "dice-" + dice1 + ".png";
+            diceElements[1].src = "./assets/images/" + "dice-" + dice2 + ".png";
+            roundScore += dice1 + dice2;
             document.getElementById("current-" + activePlayer).textContent = roundScore;
 
         }
@@ -55,10 +63,13 @@ document.querySelector(".btn-roll").addEventListener("click", () => {
             document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
             activePlayer = Number(!activePlayer);
             document.querySelector(".player-" + activePlayer + "-panel").classList.add("active");
-            diceElement.style.display = "none";
+            diceElements.forEach((diceElement) => {
+                diceElement.style.display = "none";
+            })
 
         }
-        prevDice = dice;
+        prevDice1 = dice1;
+        prevDice2 = dice2;
 
     }
     
@@ -96,7 +107,9 @@ document.querySelector(".btn-hold").addEventListener("click", () => {
             document.querySelector(".player-" + activePlayer + "-panel").classList.add("active");
 
         }
-        diceElement.style.display = "none";
+        diceElements.forEach((diceElement) => {
+            diceElement.style.display = "none";
+        })
 
         
     }
@@ -120,7 +133,9 @@ function initializeGame(){
     activeGame = true;
     gameScores = [0, 0];
     roundScore = 0;
-    diceElement.style.display = "none";
+    diceElements.forEach((diceElement) => {
+        diceElement.style.display = "none";
+    })
     curScoreZero.textContent = 0;
     curScoreOne.textContent = 0;
     mainScoreZero.textContent = 0;
