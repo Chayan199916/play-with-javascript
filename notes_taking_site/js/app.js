@@ -47,32 +47,32 @@ btn1.addEventListener('click', function () {
     text.focus();
 })
 
-function deleteNote(index){
+function deleteNote(index) {
     textList = localStorage.getItem('text');
     textList = JSON.parse(textList);
     textList.splice(index, 1);
     textList = JSON.stringify(textList);
-    if(textList != "[]"){
+    if (textList != "[]") {
         localStorage.setItem('text', textList);
         showText();
     }
-    else{
+    else {
         localStorage.clear();
         div1 = document.getElementById('target-div');
         div1.innerHTML = `<h6>No notes yet ! Click on "Add Note" to create a note.</h6>`;
     }
 }
 search = document.getElementById("searchTxt");
-search.addEventListener('input', function(){
+search.addEventListener('input', function () {
     searchText = search.value;
     // console.log(searchText);
     cardsList = document.getElementsByClassName('my-card');
-    Array.from(cardsList).forEach(function(element){
+    Array.from(cardsList).forEach(function (element) {
         note = element.getElementsByTagName('p')[0].innerText;
-        if(note.includes(searchText)){
+        if (note.includes(searchText)) {
             element.style.display = "block";
         }
-        else{
+        else {
             element.style.display = "none";
         }
     })
