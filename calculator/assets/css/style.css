@@ -2,9 +2,17 @@
   font-family: "Ubuntu", sans-serif;
 }
 body {
-  background: #0099f7;
-  background: -webkit-linear-gradient(to right, #f11712, #0099f7);
-  background: linear-gradient(to right, #f11712, #0099f7);
+  background: #4da0b0; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #d39d38,
+    #4da0b0
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #d39d38,
+    #4da0b0
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .container {
   text-align: center;
@@ -39,7 +47,7 @@ button {
   border: none;
   font-weight: 700;
   background: #dc6c6c;
-  color: #f9f9f9;
+  color: #2f0303;
   box-shadow: 3px -1px 1px #fff;
   cursor: pointer;
 }
@@ -47,5 +55,5 @@ button {
   display: inline-block;
 }
 span {
-  color: #dc6c6c;
+  color: #370846;
 }
